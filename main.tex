@@ -60,6 +60,29 @@ Program is listed here:\\
 
 \subsection{Exercise 1: terminate this proof}
 \noindent
+case1:\\
+$m \in (k + 1)+1 \upto j$\\
+$\forall m \cdot m \in k+1 \upto j \Rightarrow g(m) > x  $\\
+$\forall m \cdot m \in 0 \upto k \Rightarrow g(m) \leq x $\\
+$g(j+1) \leq x $\\
+$\vdash$\\
+$h(m)>x $\\
+
+\noindent
+where h is $ (\{k+1, j+1\} \domsub g) \cup\{k+1 \mapsto g(j+1), j+1 \mapsto g(k+1)\}$\\
+\noindent so we have:\\
+$h(m) = g(m)$ since $m>k+1 $ and $m<j+1$\\ 
+\noindent Applying rule \text{U}\_\text{H}:\\
+$g(m)>x $\\
+$ \forall m \cdot m \in 0 \upto k \Rightarrow g(m) \leq x $\\
+$g(j+1) \leq x $\\
+$m \in (k + 1)+1 \upto j$\\
+$\vdash$\\
+$g(m)>x \quad \text{HYP}$\\
+
+\noindent
+case2($m = j+1 $):\\
+
 
 
 \subsection{Exercise 2: terminate this proof}
