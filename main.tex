@@ -37,27 +37,84 @@ Add the prove process here: \\
 
 \subsection{ Prove POST}
 \noindent
-
-
+$\ldots,g\in 0\upto n-1\rightarrow\mathbb{N}\vdash g\in 0\upto n-1\rightarrow\mathbb{N}\quad\text{HYP\quad and \quad SPLIT}$\\
+\\
+$ \ldots,i\leq j+1,i\geq j,i+j=n-1,$\\
+$ \forall k\cdot k\in 0\upto i-1 \Rightarrow g(k)=f(n-1-k),$\\
+$ \forall k\cdot k\in i\upto j \Rightarrow g(k)=f(k),$\\
+$ \forall k\cdot k\in j+1\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+$\vdash \forall k\cdot k\in 0\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+\\
+$ \ldots,(i=j) \lor (i=j+1),i+j=n-1,$\\
+$ \forall k\cdot k\in 0\upto i-1 \Rightarrow g(k)=f(n-1-k),$\\
+$ \forall k\cdot k\in i\upto j \Rightarrow g(k)=f(k),$\\
+$ \forall k\cdot k\in j+1\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+$\vdash \forall k\cdot k\in 0\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+\\
+$ \ldots,i=j,i+j=n-1,$\\
+$ \forall k\cdot k\in 0\upto i-1 \Rightarrow g(k)=f(n-1-k),$\\
+$ \forall k\cdot k\in i\upto j \Rightarrow g(k)=f(k),$\\
+$ \forall k\cdot k\in j+1\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+$\vdash \forall k\cdot k\in 0\upto n-1 \Rightarrow g(k)=f(n-1-k)\quad\text{OR\_H}$\\
+\\
+$ \ldots,j=n-1-j,$\\
+$ \forall k\cdot k\in 0\upto j-1 \Rightarrow g(k)=f(n-1-k),$\\
+$ \forall k\cdot k\in j\upto j \Rightarrow g(k)=f(k),$\\
+$ \forall k\cdot k\in j+1\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+$\vdash \forall k\cdot k\in 0\upto n-1 \Rightarrow g(k)=f(n-1-k)\quad\text{EQL}$\\
+Obvious,since $j=n-1-j$ when $k=j$,we have $g(j)=f(j)=f(n-1-j)$\\
+\\
+$ \ldots,i=j+1,i+j=n-1,$\\
+$ \forall k\cdot k\in 0\upto i-1 \Rightarrow g(k)=f(n-1-k),$\\
+$ \forall k\cdot k\in i\upto j \Rightarrow g(k)=f(k),$\\
+$ \forall k\cdot k\in j+1\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+$\vdash \forall k\cdot k\in 0\upto n-1 \Rightarrow g(k)=f(n-1-k)\quad\text{OR\_H}$\\
+\\
+$ \ldots,j=n-1-j-1,$\\
+$ \forall k\cdot k\in 0\upto j+1 \Rightarrow g(k)=f(n-1-k),$\\
+$ \forall k\cdot k\in j+1\upto j \Rightarrow g(k)=f(k),$\\
+$ \forall k\cdot k\in j+1\upto n-1 \Rightarrow g(k)=f(n-1-k)$\\
+$\vdash \forall k\cdot k\in 0\upto n-1 \Rightarrow g(k)=f(n-1-k)\quad\text{EQL}$\\
+Obvious,$(j+1\upto j)=\mathbb{\phi}$\\
 
 
 \subsection{Propose a variant and prove it}
 \noindent
+since j-i decreased all the time,we choose j-i as the variant.\\
+\\
+$\text{NAT:}$\\
+$\ldots,i<j\vdash j-i\in \mathbb{N}$\quad since $j-i>0$\\
+$\text{VAR:}$\\
+$ \ldots,i<j\vdash [i:=i+1;j:=j-1]j-i<j-i$\\
+$ \ldots,i<j\vdash [i:=i+1][j:=j-1]j-i<j-i$\\
+$ \ldots,i<j\vdash [i:=i+1]j-1-i<j-i$\\
+$ \ldots,i<j\vdash j-1-i-1<j-i$\\
+$ \ldots,i<j\vdash -2<0$
 
 
 \subsection{Translate this program to C and execute it}
 \noindent
-Program is listed here:\\
+Program is listed here:
 \begin{figure}[h!]
 \centering
-\includegraphics{}
+\includegraphics{1.png}
 \caption{ write in c}
 \label{fig}
 \end{figure}
-
+\begin{figure}[h!]
+\centering
+\includegraphics{2.png}
+\caption{ write in c}
+\label{fig}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics{3.png}
+\caption{ run }
+\label{fig}
+\end{figure}
 
 \section{homework 2.5}
-
 \subsection{Exercise 1: terminate this proof}
 \noindent
 case1:\\
@@ -94,7 +151,15 @@ case2($m = j+1 $):\\
 \subsection{Exercise 3}
 
 \subsubsection{Rewrite PRE- and POST-conditions}
-
+\noindent
+$\text{PRE:}$
+$ n>0,f\in 0\upto n-1\rightarrowtail \mathbb{N},x\leq 0$\\
+$\text{POST:}$
+$k\in -1\upto n-1,$\\
+$g\in 0\upto n-1\rightarrowtail\mathbb{N},$\\
+$ran(g)=ran(f),$\\
+$ \forall m \cdot m \in 0 \upto k \Rightarrow g(m) \leq x ,$\\
+$ \forall m \cdot m \in k+1 \upto n-1 \Rightarrow g(m)>x$\\
 
 \subsubsection{Prove all invariants}
 
@@ -155,21 +220,21 @@ Program is listed here:\\
 
 \begin{figure}[h!]
 \centering
-\includegraphics{2.png}
-\caption{ write in c}
-\label{fig}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics{3.png}
-\caption{ write in c}
-\label{fig}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
 \includegraphics{4.png}
+\caption{ write in c}
+\label{fig}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics{5.png}
+\caption{ write in c}
+\label{fig}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics{6.png}
 \caption{ run }
 \label{fig}
 \end{figure}
