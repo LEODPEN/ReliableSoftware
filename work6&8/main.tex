@@ -35,7 +35,7 @@ f \in A \rightarrow B,y \in f[S] \vdash \exists x \cdot x \in S \cap A \wedge y 
 g \in 0 \upto n-1 \rightarrow N,g(l) \in g[k \upto n-1] \vdash \exists x \cdot x \in k \upto n-1 \cap 0 \upto n-1 \wedge g(l)=g(x) \\
 g \in 0 \upto n-1 \rightarrow N,g(l) \in g[k \upto n-1] \vdash \exists x \cdot x \in k \upto n-1 \wedge g(l)=g(x) \\
 f \in A \rightarrowtail B,i \in A,j \in A,f(i) = f(j) \\
-g \in 0 \upto n-1 \rightarrow N,\exists x \cdot x \in k \upto n-1 \wedge g(l)=g(x) \vdash l = x \\
+g \in 0 \upto n-1 \rightarrowtail N,\exists x \cdot x \in k \upto n-1 \wedge g(l)=g(x) \vdash l = x \\
 \exists x \cdot P(x) \wedge x = E \vdash P(E) \\
 \exists x \cdot x \in k \upto n-1,l=x \vdash l \in k \upto n-1 \; AH \\
 
@@ -43,7 +43,12 @@ g \in 0 \upto n-1 \rightarrow N,\exists x \cdot x \in k \upto n-1 \wedge g(l)=g(
 \noindent
 PRE, \vdash [k:=0]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INI \\
 PRE, \vdash \forall i,j \cdot i \in 0 \upto -1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
-PRE, k!=n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)},k:=k+1]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
+PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)},k:=k+1]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INV \\ 
+PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \;SPLIT \;HYP\\
+PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] i=k \wedge j \in k+1 \upto n-1 \Rightarrow g(i)<g(j) \;SPLIT \\
+i = k \vdash g(i)=g(k)=g(l)=min(g(k\upto n-1]) \\
+PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] j \in k+1 \upto n-1 \Rightarrow g(k)<g(j), g(k)=min(g[k..n-1] \; AH \\
+
 \subsection{Exercise 3}
 
 
