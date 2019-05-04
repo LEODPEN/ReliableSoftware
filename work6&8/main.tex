@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper,fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{bsymb}
+%usepackage[space]{ctex}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{algorithmic_pf}
+\usepackage{indentfirst}
+\usepackage[export]{adjustbox}
+\usepackage{etoolbox}
+\expandafter\patchcmd\csname Gin@ii\endcsname
+  {\setkeys {Gin}{#1}}
+  {%
+    \setkeys {Gin}
+      {max width=\textwidth,max height=.5\textwidth,keepaspectratio,#1}%
+  }
+  {}{}
+\title{Homework 2.6 $\&$ 2.8}
+
+\author{10175101126,10175101226,10175101117}
+\date{April 2019}
+\setkeys{Gin}{max width=\linewidth}
+\begin{document}
+\maketitle
+
+\section{ homework 2.6 }
+
+\section{homework 2.8}
+
+\subsection{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow N,g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
+\noindent
+y = min(S) \vdash y \in S \\
+g(l) = min(g[k\upto n-1]) \vdash g(l) \in g[k\upto n-1] \\
+f \in A \rightarrow B,y \in f[S] \vdash \exists x \cdot x \in S \cap A \wedge y = f(x) \\
+g \in 0 \upto n-1 \rightarrow N,g(l) \in g[k \upto n-1] \vdash \exists x \cdot x \in k \upto n-1 \cap 0 \upto n-1 \wedge g(l)=g(x) \\
+g \in 0 \upto n-1 \rightarrow N,g(l) \in g[k \upto n-1] \vdash \exists x \cdot x \in k \upto n-1 \wedge g(l)=g(x) \\
+f \in A \rightarrowtail B,i \in A,j \in A,f(i) = f(j) \\
+g \in 0 \upto n-1 \rightarrow N,\exists x \cdot x \in k \upto n-1 \wedge g(l)=g(x) \vdash l = x \\
+\exists x \cdot P(x) \wedge x = E \vdash P(E) \\
+\exists x \cdot x \in k \upto n-1,l=x \vdash l \in k \upto n-1 \; AH \\
+
+\subsection{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
+\noindent
+PRE, \vdash [k:=0]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INI \\
+PRE, \vdash \forall i,j \cdot i \in 0 \upto -1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
+PRE, k!=n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)},k:=k+1]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
+\subsection{Exercise 3}
+
+
+
+
+
+
+
+
+%\bibliographystyle{plain}
+%\bibliography{references}
+\end{document}
