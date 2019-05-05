@@ -15,18 +15,15 @@
       {max width=\textwidth,max height=.5\textwidth,keepaspectratio,#1}%
   }
   {}{}
-\title{Homework 2.8}
+\title{Homework  2.8}
 
 \author{10175101126,10175101226,10175101117}
-\date{May 2019}
+\date{April 2019}
 \setkeys{Gin}{max width=\linewidth}
 \begin{document}
 \maketitle
 
-
-\section{homework 2.8}
-
-\subsection{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow N,g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
+\section{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow \mathbb{N},g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
 \noindent
 y = min(S) \vdash y \in S \\
 g(l) = min(g[k\upto n-1]) \vdash g(l) \in g[k\upto n-1] \\
@@ -38,7 +35,7 @@ g \in 0 \upto n-1 \rightarrowtail N,\exists x \cdot x \in k \upto n-1 \wedge g(l
 \exists x \cdot P(x) \wedge x = E \vdash P(E) \\
 \exists x \cdot x \in k \upto n-1,l=x \vdash l \in k \upto n-1 \; AH \\
 
-\subsection{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
+\section{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
 \noindent
 PRE, \vdash [k:=0]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INI \\
 PRE, \vdash \forall i,j \cdot i \in 0 \upto -1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
@@ -48,27 +45,90 @@ PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \
 i = k \vdash g(i)=g(k)=g(l)=min(g[k\upto n-1]) \\
 PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] j \in k+1 \upto n-1 \Rightarrow g(k)<g(j), g(k)=min(g[k\upto n-1]) \; AH \\
 
-\subsection{Exercise 3:prove the loop establishes the post-condition}
+\section{Exercise 3: prove the loop establishes the following post-conditions: $ l = g^{-1}(min(g[k \upto n-1])) $}
 \noindent
-before\;it\;prove\;the\;invariant:\; \forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \\
-PRE \vdash [l:=k]\forall m \in k \upto l \Rightarrow g(m)>=g(l) \;INI \\
-PRE \vdash m=k=l \Rightarrow g(m)>=g(l) \\
-PRE \vdash [j:=n-1]\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \;INI \\
-PRE \vdash \forall m \in n \upto n-1 \Rightarrow g(m)>g(l) \\
-PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash [j:=j-1]\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(j) \;INV \\
-PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash \forall m \in j \upto n-1 \Rightarrow g(m)>g(j) \\
-PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \; SPLIT \; HYP\\
-PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash  m=j \Rightarrow g(m)>g(l) \; SPLIT \; HYP\\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash [l:=l+1]\forall m \in k \upto l \Rightarrow g(m)>=g(j) \;INV \\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l+1 \Rightarrow g(m)>=g(j) \\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l \Rightarrow g(m)>=g(j) \;HYP\;SPLIT\\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash m=l\Rightarrow g(m)>=g(j) \;SPLIT\\
+First of all, we can easily conclude the PRE:\\
+$$l \ge 0, j \ge 0, n > k $$ $$l \in \mathbb{N}$$ 
+$$ g \in 0 \upto n-1 \rightarrowtail \mathbb{N}$$
+also the variant: \\
+$$ j-l$$
+also the invariant:\\
+$$ l \in k \upto n-1 $$ $$j \in k \upto n-1 $$
+$$min(g[k \upto n-1]) \in g[l \upto j] $$
+% $$ j \ge l$$ $$ g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})) $$ $$ g(j) = min(g(\{j\} \cup \{k \upto l-1 \}))$$
+the post is :\\
+$$ g(l) = min(g[k \upto n-1])$$ 
+which means that $l = g^{-1}(min(g[k \upto n-1]))$, so we are supposed to prove:\\
+$ PRE \ldots,\vdash g(l) = min(g[k \upto n-1])$\\
+
 \noindent
-Then\;prove\;the\;post\;condition \\
-PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash l=g^{-1}(min(g[k\upto n-1])) \\
-PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(j)=min(g[k\upto l]),g(l)=min(g[j+1 \upto n-1])\\
-i<=j,i>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(j)=min(g[k\upto l]) ,g(l)=min(g[j+1 \upto n-1])\\
-i=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(i)=min(g[k\upto n-1]) \\
+In order to prove the post condition, we first need to put a auxiliary lemma:\\
+$PRE, \ldots ,min(g[k \upto n-1]) \in g[l \upto j] \vdash l \le j $\\
+$PRE, \ldots, l>j \vdash min(g[k \upto n-1]) \notin g[l \upto j] \quad \textb{CT1}$\\
+$PRE, \ldots, l>j \vdash min(g[k \upto n-1]) \notin \emptyset $\\
+obvious.\\
+
+\noindent
+then we do the proof of post:\\
+Using the auxiliary lemma as an additional assumption$(Rule AH)$\\
+$PRE,\ldots,l \in k \upto n-1,min(g[k \upto n-1]) \in g[l \upto j],l \le j \vdash g(l) = min(g[k \upto n-1])$\\
+$PRE,\ldots,l \in k \upto n-1,min(g[k \upto n-1]) \in g[l \upto j],l \le j,l \ge j \vdash g(l) = min(g[k \upto n-1])$\\
+$PRE,\ldots,l \in k \upto n-1,min(g[k \upto n-1]) \in g[l \upto j],l =j \vdash g(l) = min(g[k \upto n-1])$\\
+$PRE,\ldots,min(g[k \upto n-1]) \in g[l \upto l] \vdash g(l) = min(g[k \upto n-1]) \quad \textb{EQL}$\\
+$PRE,\ldots,min(g[k \upto n-1]) \in \{g(l)\} \vdash g(l) = min(g[k \upto n-1]) $\\
+$PRE,\ldots,min(g[k \upto n-1]) = g(l) \vdash g(l) = min(g[k \upto n-1]) \quad \textb{HYP}$\\
+
+therefore we can conclude that the loop establishes the post-condition $  l = g^{-1}(min(g[k \upto n-1])) $.\\    
+
+
+
+
+
+
+% have errors this way
+%\text{1. $j \ge l$}\\
+%\textb{INI}:\\
+%$PRE \vdash [l:= k,j:=n-1](j\ge l) $\\
+%$PRE \vdash n-1 \ge k) $\\
+%obvious in PRE that $ n-1 > k $.\\
+
+%\noindent
+% \text{INV}:\\
+% when $g(l) < g(j) $\\
+% $PRE,\ldots,l<j,j\ge l \vdash [j:=j-1](j\ge l)  $\\ 
+% $PRE,\ldots,l<j,j\ge l \vdash j-1\ge l $\\ 
+% obvious since $l<j $.\\
+% when $g(l) \ge g(j)$\\
+% $PRE,\ldots,l<j,j\ge l \vdash [l:=l+1](j\ge l)  $\\ 
+% $PRE,\ldots,l<j,j\ge l \vdash j\ge l+1  $\\ 
+% obvious since $l<j$.\\
+
+% \noindent
+% \textb{2. $g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})) $}\\
+% \textb{INI}:\\
+% $PRE,\ldots \vdash [l:=k,j:=n-1](g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})))$\\
+% $PRE,\ldots \vdash g(k) = min(g(\{k\} \cup\{n-1+1 \upto n-1\}))$\\
+% $PRE,\ldots \vdash g(k) = min(g(\{k\}\cup\{n \upto n-1\}))$\\
+% $PRE,\ldots \vdash g(k) = min(g(\{k\} \cup \emptyset))$\\
+% $PRE,\ldots \vdash g(k) = min(g(\{k\})$\\
+% $PRE,\ldots \vdash g(k) = g(k) $\\
+% obvious.\\
+
+% \noindent
+% \textb{INV}:\\
+% when $g(l) < g(j) $\\
+% $PRE,\ldots,g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})) \vdash [j:=j-1](g(l) = min(g(\{l\}\cup\{j+1 \upto n-1\})))  $\\ 
+% $PRE,\ldots,g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})) \vdash g(l) = min(g(\{l\} \cup\{j-1+1 \upto n-1\})))  $\\ 
+% $PRE,\ldots,g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})) \vdash g(l) = min(g(\{l\} \cup\{(j-1)+1 \upto n-1\}))  $\\ 
+% $PRE,\ldots,g(l) < g(j),g(l) = min(g(\{l\} \cup\{j+1 \upto n-1\})) \vdash g(l) = min(g(\{l\} \cup\{j \upto n-1\}))  $\\ 
+% $PRE,\ldots,g(l) = min(g(\{l\} \cup\{j \upto n-1\})) \vdash g(l) = min(g(\{l\}     \cup\{j \upto n-1\})) \quad\textb{HYP} $\\ 
+% (since we have $ g(l) < g(j)$ and $ g(l) = min(g(\{l\} \cup\{k \upto l-1\}\cup\{j+1 \upto n-1\})))$\\
+
+% \noindent
+% when $g(l) \ge g(j)$\\
+% $PRE,\ldots,g(l) = min(g(\{l\} \cup\{k \upto l-1\}\cup\{j+1 \upto n-1\})) \vdash [l:=l+1](g(l) = min(g(\{l\} \cup\{k \upto l-1\}\cup\{j+1 \upto n-1\})))  $\\ 
+% $PRE,\ldots,g(l) = min(g(\{l\} \cup\{k \upto l-1\}\cup\{j+1 \upto n-1\})) \vdash g(l+1) = min(g(\{l+1\} \cup\{k \upto (l+1)-1\}\cup\{j+1 \upto n-1\})))  $\\ 
+% $PRE,\ldots,g(l) \ge g(j),g(l) = min(g(\{l\} \cup\{k \upto l-1\}\cup\{j+1 \upto n-1\})) \vdash g(l) = min(g(\{l+1\} \cup\{k \upto l\}\cup\{j+1 \upto n-1\})))  $\\ 
 
 
 
@@ -76,6 +136,5 @@ i=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 
 
 
 
-%\bibliographystyle{plain}
-%\bibliography{references}
+
 \end{document}
