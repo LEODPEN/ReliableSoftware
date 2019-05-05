@@ -59,19 +59,16 @@ PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j
 PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash \forall m \in j \upto n-1 \Rightarrow g(m)>g(j) \\
 PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \; SPLIT \; HYP\\
 PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash  m=j \Rightarrow g(m)>g(l) \; SPLIT \; HYP\\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash [l:=l+1]\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j) \;INV \\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l \Rightarrow g(m)>=g(j) \\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l-1 \Rightarrow g(m)>=g(j) \;HYP\;SPLIT\\
-PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash m=l\Rightarrow g(m)>=g(j) \;SPLIT\\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash [l:=l+1]\forall m \in k \upto l \Rightarrow g(m)>=g(j) \;INV \\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l+1 \Rightarrow g(m)>=g(j) \\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l \Rightarrow g(m)>=g(j) \;HYP\;SPLIT\\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j)\vdash m=l\Rightarrow g(m)>=g(j) \;SPLIT\\
 \noindent
 Then\;prove\;the\;post\;condition \\
 PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash l=g^{-1}(min(g[k\upto n-1])) \\
-PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(l)=min(g[k\upto n-1]) \\
-
-
-
-
-
+PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(j)=min(g[k\upto l]),g(l)=min(g[j+1 \upto n-1])\\
+i<=j,i>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(j)=min(g[k\upto l]) ,g(l)=min(g[j+1 \upto n-1])\\
+i=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(i)=min(g[k\upto n-1]) \\
 
 
 
