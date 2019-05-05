@@ -15,15 +15,18 @@
       {max width=\textwidth,max height=.5\textwidth,keepaspectratio,#1}%
   }
   {}{}
-\title{Homework  2.8}
+\title{Homework 2.8}
 
 \author{10175101126,10175101226,10175101117}
-\date{April 2019}
+\date{May 2019}
 \setkeys{Gin}{max width=\linewidth}
 \begin{document}
 \maketitle
 
-\section{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow N,g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
+
+\section{homework 2.8}
+
+\subsection{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow N,g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
 \noindent
 y = min(S) \vdash y \in S \\
 g(l) = min(g[k\upto n-1]) \vdash g(l) \in g[k\upto n-1] \\
@@ -35,18 +38,47 @@ g \in 0 \upto n-1 \rightarrowtail N,\exists x \cdot x \in k \upto n-1 \wedge g(l
 \exists x \cdot P(x) \wedge x = E \vdash P(E) \\
 \exists x \cdot x \in k \upto n-1,l=x \vdash l \in k \upto n-1 \; AH \\
 
-\section{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
+\subsection{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
 \noindent
 PRE, \vdash [k:=0]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INI \\
 PRE, \vdash \forall i,j \cdot i \in 0 \upto -1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
 PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)},k:=k+1]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INV \\ 
 PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \;SPLIT \;HYP\\
 PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] i=k \wedge j \in k+1 \upto n-1 \Rightarrow g(i)<g(j) \;SPLIT \\
-i = k \vdash g(i)=g(k)=g(l)=min(g(k\upto n-1]) \\
-PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] j \in k+1 \upto n-1 \Rightarrow g(k)<g(j), g(k)=min(g[k..n-1] \; AH \\
+i = k \vdash g(i)=g(k)=g(l)=min(g[k\upto n-1]) \\
+PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] j \in k+1 \upto n-1 \Rightarrow g(k)<g(j), g(k)=min(g[k\upto n-1]) \; AH \\
 
-\section{Exercise 3}
+\subsection{Exercise 3:prove the loop establishes the post-condition}
+\noindent
+before\;it\;prove\;the\;invariant:\; \forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \\
+PRE \vdash [l:=k]\forall m \in k \upto l \Rightarrow g(m)>=g(l) \;INI \\
+PRE \vdash m=k=l \Rightarrow g(m)>=g(l) \\
+PRE \vdash [j:=n-1]\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \;INI \\
+PRE \vdash \forall m \in n \upto n-1 \Rightarrow g(m)>g(l) \\
+PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash [j:=j-1]\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(j) \;INV \\
+PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash \forall m \in j \upto n-1 \Rightarrow g(m)>g(j) \\
+PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \; SPLIT \; HYP\\
+PRE,g(l)<g(j),l<j,\forall m \in k \upto l \Rightarrow g(m)>=g(j),\forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l)\vdash  m=j \Rightarrow g(m)>g(l) \; SPLIT \; HYP\\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash [l:=l+1]\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j) \;INV \\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l \Rightarrow g(m)>=g(j) \\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash \forall m \in k \upto l-1 \Rightarrow g(m)>=g(j) \;HYP\;SPLIT\\
+PRE,g(l)>=g(j),l<j,\forall m \in k \upto l-1 \Rightarrow g(m)>=g(j)\vdash m=l\Rightarrow g(m)>=g(j) \;SPLIT\\
+\noindent
+Then\;prove\;the\;post\;condition \\
+PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash l=g^{-1}(min(g[k\upto n-1])) \\
+PRE,l>=j,\forall m \in k \upto l \Rightarrow g(m)>=g(j), \forall m \in j+1 \upto n-1 \Rightarrow g(m)>g(l) \vdash g(l)=min(g[k\upto n-1]) \\
 
 
 
+
+
+
+
+
+
+
+
+
+%\bibliographystyle{plain}
+%\bibliography{references}
 \end{document}
