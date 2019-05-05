@@ -15,7 +15,7 @@
       {max width=\textwidth,max height=.5\textwidth,keepaspectratio,#1}%
   }
   {}{}
-\title{Homework 2.6 $\&$ 2.8}
+\title{Homework  2.8}
 
 \author{10175101126,10175101226,10175101117}
 \date{April 2019}
@@ -23,11 +23,7 @@
 \begin{document}
 \maketitle
 
-\section{ homework 2.6 }
-
-\section{homework 2.8}
-
-\subsection{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow N,g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
+\section{Exercise 1: prove the following:  g \in 0 \upto n-1 \rightarrow N,g(l)=min(g[k\upto n-1]) \vdash l \in k \upto n-1} 
 \noindent
 y = min(S) \vdash y \in S \\
 g(l) = min(g[k\upto n-1]) \vdash g(l) \in g[k\upto n-1] \\
@@ -39,7 +35,7 @@ g \in 0 \upto n-1 \rightarrowtail N,\exists x \cdot x \in k \upto n-1 \wedge g(l
 \exists x \cdot P(x) \wedge x = E \vdash P(E) \\
 \exists x \cdot x \in k \upto n-1,l=x \vdash l \in k \upto n-1 \; AH \\
 
-\subsection{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
+\section{Exercise 2: prove the invariant: \forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j)}
 \noindent
 PRE, \vdash [k:=0]\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \; INI \\
 PRE, \vdash \forall i,j \cdot i \in 0 \upto -1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \\
@@ -49,15 +45,8 @@ PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \
 i = k \vdash g(i)=g(k)=g(l)=min(g(k\upto n-1]) \\
 PRE, k \neq n-1,\forall i,j \cdot i \in 0 \upto k-1 \wedge j \in i+1 \upto n-1 \Rightarrow g(i)<g(j) \vdash [l:=g^{-1}(min(g[k\upto n-1])),g:=(\{k,l\} \domsub g) \cup {k \mapsto g(l),l \mapsto g(k)}] j \in k+1 \upto n-1 \Rightarrow g(k)<g(j), g(k)=min(g[k..n-1] \; AH \\
 
-\subsection{Exercise 3}
+\section{Exercise 3}
 
 
 
-
-
-
-
-
-%\bibliographystyle{plain}
-%\bibliography{references}
 \end{document}
