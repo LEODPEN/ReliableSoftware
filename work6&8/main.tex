@@ -62,7 +62,25 @@ which means that $l = g^{-1}(min(g[k \upto n-1]))$, so we are supposed to prove:
 $ PRE \ldots,\vdash g(l) = min(g[k \upto n-1])$\\
 
 \noindent
-In order to prove the post condition, we first need to put a auxiliary lemma:\\
+In order to prove the post condition, we first need to prove the invariant : $ min(g[k \upto n-1]) \in g[l \upto j] $.\\
+\textb{INI}\\
+$PRE,\ldots \vdash [l:=k,j:=n-1](min(g[k \upto n-1]) \in g[l \upto j]) $\\
+$PRE,\ldots \vdash min(g[k \upto n-1]) \in g[k \upto n-1] $\\
+obvious since $n > k$ in PRE.\\
+
+\noindent
+\textb{INV}\\
+when $ g(l)<g(j) $\\
+$PRE,\ldots,l<j,min(g[k \upto n-1]) \in g[l \upto j] \vdash [j:=j-1](min(g[k \upto n-1]) \in g[l \upto j]) $\\
+$PRE,\ldots,l<j,min(g[k \upto n-1]) \in g[l \upto j],g(l)<g(j) \vdash min(g[k \upto n-1]) \in g[l \upto j-1] $\\ 
+obvious since $g[l \upto j] = \{g(j)\} \cup g[l \upto j-1] $ and $ g(l)<g(j)$.\\ 
+when $ g(l) \ge g(j) $\\
+$PRE,\ldots,l<j,min(g[k \upto n-1]) \in g[l \upto j] \vdash [l:=l+1](min(g[k \upto n-1]) \in g[l \upto j]) $\\
+$PRE,\ldots,l<j,min(g[k \upto n-1]) \in g[l \upto j],g(l) \ge g(j) \vdash min(g[k \upto n-1]) \in g[l+1 \upto j] $\\
+obvious since $g[l \upto j] = \{g(l)\} \cup f[l+1 \upto j] $ and $g(l) \ge g(j). $\\
+
+\noindent
+then we put a auxiliary lemma:\\
 $PRE, \ldots ,min(g[k \upto n-1]) \in g[l \upto j] \vdash l \le j $\\
 $PRE, \ldots, l>j \vdash min(g[k \upto n-1]) \notin g[l \upto j] \quad \textb{CT1}$\\
 $PRE, \ldots, l>j \vdash min(g[k \upto n-1]) \notin \emptyset $\\
