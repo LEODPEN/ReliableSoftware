@@ -24,7 +24,7 @@
 \maketitle
 
 
-\section{Exercise 1:From PRE and POST, prove that g is equal to  f^-1}
+\section{Exercise 1:From PRE and POST, prove that g is equal to  f^{-1}}
 \noindent
 
 
@@ -34,9 +34,34 @@
 \section{Exercise2 }
 
 \subsection{Propose some invariants and variant}
+\noindent
+invariants \\
+\forall i \in 1 \upto p-1,g(i)=i-1 \\
+\forall i \in p \upto n-1,g(i)=i+1 \\
 
 \subsection{ Prove these invariants and variant}
-
+\subsubsection{prove the first invariant }
+\noindent
+PRE \vdash [g:=( \{0\} \domsub f)\cup \{n-1 \mapsto n\},p:=1]\forall i \in 1 \upto p-1,g(i)=i-1  \;INI \\
+PRE \vdash [g:=( \{0\} \domsub f)\cup \{n-1 \mapsto n\}]\forall i \in 1 \upto 0,g(i)=i-1  \\
+i\;doesn't\;exist \\
+PRE,p \neq n, \forall i \in 1 \upto p-1,g(i)=i-1 \vdash [g(p):=p-1,p:=p+1]\forall i \in 1 \upto p-1,g(i)=i-1 \;INV \\
+PRE,p \neq n, \forall i \in 1 \upto p-1,g(i)=i-1 \vdash [g(p):=p-1]\forall i \in 1 \upto p,g(i)=i-1 \\
+PRE,p \neq n, \forall i \in 1 \upto p-1,g(i)=i-1 \vdash [g(p):=p-1]\forall i \in 1 \upto p-1 \cup i=p,g(i)=i-1 \\
+first\; case:\; i \in 1 \upto p-1 \\
+PRE,p \neq n, \forall i \in 1 \upto p-1,g(i)=i-1 \vdash [g(p):=p-1]\forall i \in 1 \upto p-1,g(i)=i-1 \; HYP \\
+second\; case:\; i = p \\
+PRE,p \neq n, \forall i \in 1 \upto p-1,g(i)=i-1 \vdash [g(p):=p-1]i=p,g(i)=i-1 \\
+PRE,p \neq n, \forall i \in 1 \upto p-1,g(i)=i-1 \vdash [g(p):=p-1]g(p)=p-1 \\
+\subsubsection{prove the second invariant}
+\noindent
+PRE \vdash [g:=( \{0\} \domsub f)\cup \{n-1 \mapsto n\},p:=1]\forall i \in p \upto n-1,g(i)=i+1  \;INI \\
+PRE \vdash [g:=( \{0\} \domsub f)\cup \{n-1 \mapsto n\}]\forall i \in 1 \upto n-1,g(i)=i+1 \\
+it's \; proved \; since \; g \; is \; assigned \; like \; that \\
+PRE,p \neq n, \forall i \in p \upto n-1,g(i)=i+1 \vdash [g(p):=p-1,p:=p+1]\forall i \in p \upto n-1,g(i)=i+1 \; INV \\
+PRE,p \neq n, \forall i \in p \upto n-1,g(i)=i+1 \vdash [g(p):=p-1]\forall i \in p+1 \upto n-1,g(i)=i+1 \\
+PRE,\forall i \in p \upto n-1 \vdash i \in p+1 \upto n-1 \\
+PRE,p \neq n, \forall i \in p \upto n-1,g(i)=i+1, \forall i \in p+1 \upto n-1 \vdash [g(p):=p-1]\forall i \in p+1 \upto n-1,g(i)=i+1 \;AH \;HYP \\
 \subsection{Prove POST}
 
 
