@@ -45,7 +45,6 @@ $ i\in 0\upto n-2 , f^{-1} = g  \vdash g = f^{-1} \quad \textb{HYP}$\\
 Obvious.
 
 
-
 \section{Exercise2 }
 
 \subsection{Propose some invariants and variant}
@@ -53,7 +52,7 @@ Obvious.
 invariants \\
 \forall i \in 1 \upto p-1,g(i)=i-1 \\
 \forall i \in p \upto n-1,g(i)=i+1 \\
-
+p\leq n\\
 \subsection{ Prove these invariants and variant}
 \subsubsection{prove the first invariant }
 \noindent
@@ -77,8 +76,40 @@ PRE,p \neq n, \forall i \in p \upto n-1,g(i)=i+1 \vdash [g(p):=p-1,p:=p+1]\foral
 PRE,p \neq n, \forall i \in p \upto n-1,g(i)=i+1 \vdash [g(p):=p-1]\forall i \in p+1 \upto n-1,g(i)=i+1 \\
 PRE,\forall i \in p \upto n-1 \vdash i \in p+1 \upto n-1 \\
 PRE,p \neq n, \forall i \in p \upto n-1,g(i)=i+1, \forall i \in p+1 \upto n-1 \vdash [g(p):=p-1]\forall i \in p+1 \upto n-1,g(i)=i+1 \;AH \;HYP \\
-\subsection{Prove POST}
+\subsubsection{prove the third invariant}
+\noindent
+$\ldots,n\geq 2\vdash [p:=1]p\leq n\quad\text{INI}$\\
+$\ldots,n\geq 2\vdash 1\leq n$\\
+Obvious.\\
+$\ldots,p\not=n,p\leq n\vdash [p:=p+1]p\leq n\quad\text{INV}$\\
+$\ldots,p\not=n,p\leq n\vdash p+1\leq n$\\
+Obvious.\\
+\subsubsection{Prove variant}
+\noindent
+we choose n-p as the variant.\\
+$\text{NAT:}$\\
+$ \ldots,p\leq n\vdash n-p\in\mathbb{N}$\\
+$\text{VAR:}$\\
+$ \ldots\vdash [g(p)=p-1;p:=p+1]n-p<n-p$\\
+$ \ldots\vdash [g(p)=p-1][p:=p+1]n-p<n-p$\\
+$ \ldots\vdash [p:=p+1]n-p<n-p$\\
+$ \ldots\vdash n-(p+1)<n-p$\\
+$ \ldots\vdash -1<0$\\
+Obvious.
 
+
+\subsection{Prove POST}
+\noindent
+$PRE,p=n,\forall i\cdot i\in 1\upto p-1\Rightarrow g(i)=i-1$\\
+$\vdash g\in 1\upto n-1\rightarrow 0\upto n-2,
+\forall i\cdot i\in 1\upto n-1\Rightarrow g(i)=i-1$\\
+$PRE,p=n,\forall i\cdot i\in 1\upto p-1\Rightarrow g(i)=i-1$\\
+$\vdash g\in 1\upto n-1\rightarrow 0\upto n-2\quad\text{SPLIT}$\\
+Obvious, we have prove it in exercise 1.\\
+$PRE,p=n,\forall i\cdot i\in 1\upto p-1\Rightarrow g(i)=i-1$\\
+$\vdash\forall i\cdot i\in 1\upto n-1\Rightarrow g(i)=i-1\quad\text{SPLIT}$\\
+$PRE,\forall i\cdot i\in 1\upto n-1\Rightarrow g(i)=i-1$\\
+$\vdash\forall i\cdot i\in 1\upto n-1\Rightarrow g(i)=i-1\quad\text{EQL\quad and\quad HYP}$\\
 
 
 %\bibliographystyle{plain}
