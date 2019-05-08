@@ -26,8 +26,23 @@
 
 \section{Exercise 1:From PRE and POST, prove that g is equal to  f^{-1}}
 \noindent
-
-
+$PRE,\ldots,POST ,f \in 0 \upto n-2 \rightarrow 1 \upto n-1, \forall i \cdot i\in 0\upto n-2 \Rightarrow f(i)=i+1 \vdash g = f^{-1}  $\\
+$PRE,\ldots,POST ,f \in 0 \upto n-2 \rightarrow 1 \upto n-1, i\in 0\upto n-2 , i \rightarrow i+1 \in f \vdash g = f^{-1}  $\\
+since we know that :\\
+$h\in S \rightarrow T,a \rightarrow b \in h \vdash a \in S,b=h(a) $\\
+we have:\\
+$ f \in 0 \upto n-2 \rightarrow 1 \upto n-1,i\in 0\upto n-2 , i \rightarrow i+1 \in f \vdash i \in 0\upto n-2,i+1 = f(i) $\\
+$ i\in 0\upto n-2 ,i+1 = f(i) ,\ldots,POST  \vdash g = f^{-1} \quad \textb{AH} $\\
+$ i\in 0\upto n-2 ,i+1 = f(i) ,\ldots, g \in 1 \upto n-1 \rightarrow 0 \upto n-2, \forall i \cdot i \in 1 \upto n-1 \Rightarrow g(i) = i-1  \vdash g = f^{-1}  $\\
+since we know :\\
+$ h \in S \rightarrow T, a \in S,b = h(a) \vdash a \rightarrow b \in h $\\
+we have:\\
+$ g \in 1 \upto n-1 \rightarrow 0\upto n-2, i+1 \in 1 \upto n-1, i = g(i+1) \vdash i+1 \rightarrow i \in g $\\
+$ i\in 0\upto n-2 ,i+1 = f(i) ,i \rightarrow i+1 \in f,i+1 \rightarrow i \in g  \vdash g = f^{-1}  \quad \textb{AH}$\\
+$ i\in 0\upto n-2 ,i+1 \rightarrow i \in f^{-1},i+1 \rightarrow i \in g  \vdash g = f^{-1} $\\
+$ i\in 0\upto n-2 ,i+1 \rightarrow i \in f^{-1},i+1 \rightarrow i \in g  \vdash g = f^{-1} $\\
+$ i\in 0\upto n-2 , f^{-1} = g  \vdash g = f^{-1} \quad \textb{HYP}$\\
+Obvious.
 
 
 
